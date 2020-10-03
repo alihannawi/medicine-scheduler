@@ -8,6 +8,14 @@ public class MedicineEntry {
     boolean [] daysOfWeek;
     Clock medicineTime;
 
+    public MedicineEntry(String medicineName, Float medicineDose,
+                         boolean [] daysOfWeek, Clock medicineTime) {
+        this.medicineName = medicineName;
+        this.medicineDose = medicineDose;
+        this.daysOfWeek = daysOfWeek;
+        this.medicineTime = medicineTime;
+    }
+
     public Clock getMedicineTime() {
         return medicineTime;
     }
