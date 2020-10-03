@@ -1,0 +1,13 @@
+This will be our running to do list.
+
+As of 10/03/2020 we need to do:
+
+Create database with:
+	- String medicineName
+	- float medicineDose
+	- array daysOfWeek
+	- ???? timeToTakeMedicine (How to keep track of mult times?)
+
+Main Screen and Add Medicine Screen
+
+Edit and Add buttons 
