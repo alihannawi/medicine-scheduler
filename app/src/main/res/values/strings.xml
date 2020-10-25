@@ -12,4 +12,14 @@
     <string name="Friday" />
     <string name="Saturday" />
     <string name="Sunday" />
+    <string name="tuesday" />
+    <string name="Dose_in_mg">Dose in mg</string>
+    <string name="su_m_tu_w_th_f_sa">Su M Tu W Th F Sa</string>
+    <string name="su">Su</string>
+    <string name="m">M</string>
+    <string name="tu">Tu</string>
+    <string name="w">W</string>
+    <string name="th">Th</string>
+    <string name="f">F</string>
+    <string name="sa">Sa</string>
 </resources>

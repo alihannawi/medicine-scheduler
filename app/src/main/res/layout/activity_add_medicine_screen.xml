@@ -27,12 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/medication_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/medicineDosage"
@@ -40,88 +40,133 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:ems="10"
+        android:hint="@string/Dose_in_mg"
+        android:importantForAutofill="no"
         android:inputType="number"
-        android:hint="@string/dose_in_mg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameOfMedication"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/nameOfMedication" />
 
     <CheckBox
         android:id="@+id/checkMonday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
-        android:text="@string/monday"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkTuesday"
         app:layout_constraintTop_toBottomOf="@+id/medicineDosage" />
 
     <CheckBox
         android:id="@+id/checkTuesday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/Tuesday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkMonday" />
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/checkWednesday"
+        app:layout_constraintTop_toBottomOf="@+id/medicineDosage" />
 
     <CheckBox
         android:id="@+id/checkWednesday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/Wednesday"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkTuesday" />
+        app:layout_constraintTop_toBottomOf="@+id/medicineDosage" />
 
     <CheckBox
         android:id="@+id/checkThursday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/Thursday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkWednesday" />
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/checkWednesday"
+        app:layout_constraintTop_toBottomOf="@+id/medicineDosage" />
 
     <CheckBox
         android:id="@+id/checkFriday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/Friday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkThursday" />
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/checkThursday"
+        app:layout_constraintTop_toBottomOf="@+id/medicineDosage" />
 
     <CheckBox
         android:id="@+id/checkSaturday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/Saturday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkFriday" />
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/checkFriday"
+        app:layout_constraintTop_toBottomOf="@+id/medicineDosage" />
 
     <CheckBox
         android:id="@+id/checkSunday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/Sunday"
+        android:layout_marginTop="25dp"
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/checkMonday"
+        app:layout_constraintTop_toBottomOf="@+id/medicineDosage" />
+
+    <TextView
+        android:id="@+id/sundayTextView"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/su"
+        app:layout_constraintEnd_toStartOf="@+id/mondayTextView"
+        app:layout_constraintTop_toBottomOf="@+id/checkSunday" />
+
+    <TextView
+        android:id="@+id/mondayTextView"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/m"
+        app:layout_constraintEnd_toStartOf="@+id/tuesdayTextView"
+        app:layout_constraintTop_toBottomOf="@+id/checkMonday" />
+
+    <TextView
+        android:id="@+id/tuesdayTextView"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/tu"
+        app:layout_constraintEnd_toStartOf="@+id/wednesdayTextView"
+        app:layout_constraintTop_toBottomOf="@+id/checkTuesday" />
+
+    <TextView
+        android:id="@+id/wednesdayTextView"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/w"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkWednesday" />
+
+    <TextView
+        android:id="@+id/thursdayTextView"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/th"
+        app:layout_constraintStart_toEndOf="@+id/wednesdayTextView"
+        app:layout_constraintTop_toBottomOf="@+id/checkThursday" />
+
+    <TextView
+        android:id="@+id/fridayTextView"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/f"
+        app:layout_constraintStart_toEndOf="@+id/thursdayTextView"
+        app:layout_constraintTop_toBottomOf="@+id/checkFriday" />
+
+    <TextView
+        android:id="@+id/saturdayTextView"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:gravity="center"
+        android:text="@string/sa"
+        app:layout_constraintStart_toEndOf="@+id/fridayTextView"
         app:layout_constraintTop_toBottomOf="@+id/checkSaturday" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
