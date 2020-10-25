@@ -37,21 +37,39 @@ public class MainActivity extends AppCompatActivity {
      */
 
     Button add_new_medicine_button;
+    Button see_medicine_list_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
         add_new_medicine_button = (Button) findViewById(R.id.add_new_medicine_button);
+        see_medicine_list_button = (Button) findViewById(R.id.see_medicine_list_button);
+
         add_new_medicine_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNewActivity();
+                openAddMedicineScreen();
+            }
+        });
+
+        see_medicine_list_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSeeMedicineScreen();
             }
         });
     }
-    public void openNewActivity(){
+    public void openAddMedicineScreen(){
         Intent intent = new Intent(this, AddMedicineScreen.class);
         startActivity(intent);
     }
+
+    public void openSeeMedicineScreen(){
+        Intent intent = new Intent(this, SeeMedicineScreen.class);
+        startActivity(intent);
+    }
+
+
+
 }
