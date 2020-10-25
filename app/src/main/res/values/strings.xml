@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MedicineScheduler</string>
+    <string name="add_new_medication">Add New Medication</string>
+    <string name="medication_name">Medication Name</string>
+    <string name="dose_in_mg">dose in mg</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="Monday" />
+    <string name="monday">Monday</string>
+    <string name="Tuesday" />
+    <string name="Wednesday" />
+    <string name="Thursday" />
+    <string name="Friday" />
+    <string name="Saturday" />
+    <string name="Sunday" />
 </resources>
