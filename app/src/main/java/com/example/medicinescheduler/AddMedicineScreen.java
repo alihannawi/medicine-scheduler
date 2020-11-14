@@ -20,20 +20,22 @@ public class AddMedicineScreen extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private final String TEXT_CONTENTS = "TextContents";
 
-    //bool array, set to all false, when day of week selected, switched to true.
+    //bool array, set to all false, when day of week selected, switch to true.
     boolean [] dayOfWeekArray = {false, false, false, false, false, false, false};
 
+
     //declare each day of the week checkbox
-    CheckBox sunday = (CheckBox) findViewById(R.id.checkSunday);
-    CheckBox monday = (CheckBox) findViewById(R.id.checkMonday);
-    CheckBox tuesday = (CheckBox) findViewById(R.id.checkTuesday);
-    CheckBox wednesday = (CheckBox) findViewById(R.id.checkWednesday);
-    CheckBox thursday = (CheckBox) findViewById(R.id.checkThursday);
-    CheckBox friday = (CheckBox) findViewById(R.id.checkFriday);
-    CheckBox saturday = (CheckBox) findViewById(R.id.checkSaturday);
+    CheckBox sunday; //<-- null object exc, why?
+    CheckBox monday;
+    CheckBox tuesday;
+    CheckBox wednesday;
+    CheckBox thursday;
+    CheckBox friday;
+    CheckBox saturday;
 
     //checkbox array declaration
-    CheckBox [] dayOfWeekCheckBoxArray = {sunday, monday, tuesday, wednesday, thursday, friday, saturday};
+    CheckBox [] dayOfWeekCheckBoxArray;
+
 
 
     @Override
@@ -43,6 +45,16 @@ public class AddMedicineScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicine_screen);
+
+        sunday = (CheckBox) findViewById(R.id.checkSunday); //<-- null object exc, why?
+        monday = (CheckBox) findViewById(R.id.checkMonday);
+        tuesday = (CheckBox) findViewById(R.id.checkTuesday);
+        wednesday = (CheckBox) findViewById(R.id.checkWednesday);
+        thursday = (CheckBox) findViewById(R.id.checkThursday);
+        friday = (CheckBox) findViewById(R.id.checkFriday);
+        saturday = (CheckBox) findViewById(R.id.checkSaturday);
+
+        dayOfWeekCheckBoxArray = new CheckBox[] {sunday, monday, tuesday, wednesday, thursday, friday, saturday};
 
         //confirm button should save entries from add medicine screen
         confirmButton = (Button) findViewById(R.id.confirmButton);
@@ -66,6 +78,8 @@ public class AddMedicineScreen extends AppCompatActivity {
 
                 //then open see medication screen?
                 openSeeMedicineScreen();
+
+
             }
         });
 
@@ -101,15 +115,17 @@ public class AddMedicineScreen extends AppCompatActivity {
         Log.d(TAG, "onStart: out");
     }
 
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-//        Log.d(TAG, "onRestoreInstanceState: in");
-//        super.onRestoreInstanceState(savedInstanceState);
-////        String savedString = savedInstanceState.getString(TEXT_CONTENTS);
-////        textView.setText(savedString);
-//        textView.setText(savedInstanceState.getString(TEXT_CONTENTS));
-//        Log.d(TAG, "onRestoreInstanceState: out");
-//    }
+    /*
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        Log.d(TAG, "onRestoreInstanceState: in");
+        super.onRestoreInstanceState(savedInstanceState);
+        String savedString = savedInstanceState.getString(TEXT_CONTENTS);
+        textView.setText(savedString);
+        textView.setText(savedInstanceState.getString(TEXT_CONTENTS));
+        Log.d(TAG, "onRestoreInstanceState: out");
+    }
+    */
 
     @Override
     protected void onRestart() {
@@ -125,13 +141,15 @@ public class AddMedicineScreen extends AppCompatActivity {
         Log.d(TAG, "onPause: out");
     }
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        Log.d(TAG, "onPause: in");
-//        outState.putString(TEXT_CONTENTS, textView.getText().toString());
-//        super.onSaveInstanceState(outState);
-//        Log.d(TAG, "onPause: out");
-//    }
+    /*
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        Log.d(TAG, "onPause: in");
+        outState.putString(TEXT_CONTENTS, textView.getText().toString());
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onPause: out");
+    }
+    */
 
     @Override
     protected void onResume() {

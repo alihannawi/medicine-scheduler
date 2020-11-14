@@ -35,4 +35,5 @@
     <string name="add_new_medicine_WelcomeScreen">Add New Medicine</string>
     <string name="from_here_you_can_add_new_medications_or_view_previous_entries">From here, you can add new medications, or view previous entries.</string>
     <string name="added_medications">Added Medications</string>
+    <string name="home">Home</string>
 </resources>
