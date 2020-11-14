@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,22 @@ public class AddMedicineScreen extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private final String TEXT_CONTENTS = "TextContents";
 
+    //bool array, set to all false, when day of week selected, switched to true.
+    boolean [] dayOfWeekArray = {false, false, false, false, false, false, false};
+
+    //declare each day of the week checkbox
+    CheckBox sunday = (CheckBox) findViewById(R.id.checkSunday);
+    CheckBox monday = (CheckBox) findViewById(R.id.checkMonday);
+    CheckBox tuesday = (CheckBox) findViewById(R.id.checkTuesday);
+    CheckBox wednesday = (CheckBox) findViewById(R.id.checkWednesday);
+    CheckBox thursday = (CheckBox) findViewById(R.id.checkThursday);
+    CheckBox friday = (CheckBox) findViewById(R.id.checkFriday);
+    CheckBox saturday = (CheckBox) findViewById(R.id.checkSaturday);
+
+    //checkbox array declaration
+    CheckBox [] dayOfWeekCheckBoxArray = {sunday, monday, tuesday, wednesday, thursday, friday, saturday};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -27,7 +44,31 @@ public class AddMedicineScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicine_screen);
 
-        //confirmButton = (Button) findViewById(R.id.confirmButton);
+        //confirm button should save entries from add medicine screen
+        confirmButton = (Button) findViewById(R.id.confirmButton);
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //save the entries
+                EditText medicationName = (EditText) findViewById(R.id.nameOfMedication);
+                EditText medicationDose = (EditText) findViewById(R.id.medicineDosage);
+
+                //check to see what days of the week are checked
+                for (int i = 0; i < dayOfWeekArray.length; i++) {
+                    if (dayOfWeekCheckBoxArray[i].isChecked()) {
+                        dayOfWeekArray[i] = true;
+                    }
+                }
+
+
+                //check time for alarm/alert/reminder
+
+                //then open see medication screen?
+                openSeeMedicineScreen();
+            }
+        });
+
         backButton = (Button) findViewById(R.id.backButton);
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +85,12 @@ public class AddMedicineScreen extends AppCompatActivity {
     public void openMainActivity() {
 
         Intent intent = new Intent(this , MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSeeMedicineScreen() {
+
+        Intent intent = new Intent(this , SeeMedicineScreen.class);
         startActivity(intent);
     }
 

@@ -22,4 +22,17 @@
     <string name="th">Th</string>
     <string name="f">F</string>
     <string name="sa">Sa</string>
+    <string name="see_medicine_screen">See Medicine Screen</string>
+    <string name="add_new_meds">Add New Meds</string>
+    <string name="confirm">Confirm</string>
+    <string name="back">Back</string>
+    <string name="welcome">Welcome!</string>
+    <string name="see_meds_list">See Meds List</string>
+    <string name="weclome_from_here_you_can_view_your_current_medical_schedule_or_add_new_medical_information">Weclome! From here you can view your current medical schedule or add new medical information</string>
+    <string name="from_here_you_can_view_your_current_medical_schedule_or_add_new_medical_information" />
+    <string name="add_new_medicine" />
+    <string name="see_medicine_list">See Medicine List</string>
+    <string name="add_new_medicine_WelcomeScreen">Add New Medicine</string>
+    <string name="from_here_you_can_add_new_medications_or_view_previous_entries">From here, you can add new medications, or view previous entries.</string>
+    <string name="added_medications">Added Medications</string>
 </resources>
