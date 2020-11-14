@@ -9,40 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Ignore all this for now
-    /*
-    //I'm not sure if this is where functions and stuff should go or not... -GD
-
-    //Create an array of MedicineEntry
-    MedicineEntry medicineDatabase [] = new MedicineEntry[50];
-    private MedicineEntry newEntry;
-
-    //adds a new entry to medicineDatabase
-    public MedicineEntry addEntryToArray(){
-
-        return newEntry;
-    }
-
-    //removes a prior entry from medicineDatabase
-    public void removeEntryFromArray(){
-
-    }
-
-    //allows user to edit an existing entry in medicineDatabase
-    public void editEntryInArray(){
-
-    }
-
-    //Probably need some sort functions like by name/time
-     */
-
     Button add_new_medicine_button;
     Button see_medicine_list_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_screen);
+        setContentView(R.layout.activity_main);
         add_new_medicine_button = (Button) findViewById(R.id.add_new_medicine_button);
         see_medicine_list_button = (Button) findViewById(R.id.see_medicine_list_button);
 
@@ -69,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SeeMedicineScreen.class);
         startActivity(intent);
     }
-
 
 
 }
