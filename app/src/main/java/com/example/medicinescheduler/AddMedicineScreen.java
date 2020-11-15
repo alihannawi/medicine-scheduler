@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 public class AddMedicineScreen extends AppCompatActivity {
 
@@ -36,7 +39,13 @@ public class AddMedicineScreen extends AppCompatActivity {
     //checkbox array declaration
     CheckBox [] dayOfWeekCheckBoxArray;
 
-
+    //edit text/text view/string declarations
+    EditText medicationName;
+    EditText medicationDose;
+    TextView medicationNameDisplay;
+    TextView medicationDoseDisplay;
+    String medicationNameEntry;
+    String medicationDoseEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +55,9 @@ public class AddMedicineScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicine_screen);
 
-        sunday = (CheckBox) findViewById(R.id.checkSunday); //<-- null object exc, why?
+
+        //set each day of week checkbox to their respective variables
+        sunday = (CheckBox) findViewById(R.id.checkSunday);
         monday = (CheckBox) findViewById(R.id.checkMonday);
         tuesday = (CheckBox) findViewById(R.id.checkTuesday);
         wednesday = (CheckBox) findViewById(R.id.checkWednesday);
@@ -56,15 +67,31 @@ public class AddMedicineScreen extends AppCompatActivity {
 
         dayOfWeekCheckBoxArray = new CheckBox[] {sunday, monday, tuesday, wednesday, thursday, friday, saturday};
 
+        //save the entries
+        medicationName = (EditText) findViewById(R.id.nameOfMedication);
+        medicationDose = (EditText) findViewById(R.id.medicineDosage);
+
+        //medicationNameDisplay = (TextView) findViewById(R.id.addedMedScreenMedName);
+        //medicationDoseDisplay = (TextView) findViewById(R.id.addedMedScreenMedDose);
+
+        //insert medication name and dose into respective text view boxes
+        //convert text entries to usable strings
+        medicationNameEntry = medicationName.getText().toString();
+        medicationDoseEntry = medicationDose.getText().toString();
+
         //confirm button should save entries from add medicine screen
         confirmButton = (Button) findViewById(R.id.confirmButton);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //save the entries
-                EditText medicationName = (EditText) findViewById(R.id.nameOfMedication);
-                EditText medicationDose = (EditText) findViewById(R.id.medicineDosage);
+                openSeeMedicineScreen();
+
+                setContentView(R.layout.activity_see_medicine_screen);
+
+                //displays entries
+                medicationNameDisplay.setText(medicationNameEntry);
+                medicationDoseDisplay.setText(medicationDoseEntry);
 
                 //check to see what days of the week are checked
                 for (int i = 0; i < dayOfWeekArray.length; i++) {
@@ -77,7 +104,7 @@ public class AddMedicineScreen extends AppCompatActivity {
                 //check time for alarm/alert/reminder
 
                 //then open see medication screen?
-                openSeeMedicineScreen();
+
 
 
             }
