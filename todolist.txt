@@ -1,13 +1,13 @@
 This will be our running to do list.
 
-As of 10/03/2020 we need to do:
+I edited all of the code for our screens.
 
-Create database with:
-	- String medicineName
-	- float medicineDose
-	- array daysOfWeek
-	- ???? timeToTakeMedicine (How to keep track of mult times?)
+It should be much easier to be able to send data across views now.
 
-Main Screen and Add Medicine Screen
+We still need to add:
+	days of the week
+	time
 
-Edit and Add buttons 
+We also need to make the data peristant.
+
+Also need a way to set off an alarm when the time is correct.
