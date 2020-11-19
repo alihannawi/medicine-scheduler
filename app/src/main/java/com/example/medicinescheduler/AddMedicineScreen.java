@@ -15,20 +15,84 @@ import org.w3c.dom.Text;
 
 public class AddMedicineScreen extends AppCompatActivity {
 
-    //This is the 'screen' that will hold all the information
-    //boxes required to add a new medication.
+    public static final String EXTRA_TEXT = "com.example.medicinescheduler.EXTRA_TEXT";
+    public static final String EXTRA_NUMBER = "com.example.medicinescheduler.EXTRA_NUMBER";
 
-    private EditText nameOfMedication , medicineDosage;
-    private Button confirmButton , backButton;
-    private static final String TAG = "MainActivity";
-    private final String TEXT_CONTENTS = "TextContents";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_medicine_screen);
 
+        openSeeMedicineScreen();
+        openMainActivity();
+
+    }
+
+    //GO BACK
+    private void openMainActivity() {
+        Button backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddMedicineScreen.this , MainActivity.class));
+            }
+        });
+    }
+
+    //CONFIRM AND GO TO SEE MEDICINE SCREEN
+    private void openSeeMedicineScreen() {
+        Button confirmButton = (Button) findViewById(R.id.confirmButton);
+        //passUserInformation();
+
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText etMedicationName = (EditText) findViewById(R.id.nameOfMedication);
+                EditText etMedicationDose = (EditText) findViewById(R.id.medicineDosage);
+
+                /*
+                medicationDoseEntry might need to be an int variable
+                if so, = Integer.parseInt(etMedicationDose.getText().toString());
+                */
+                String medicationNameEntry = etMedicationName.getText().toString();
+                String medicationDoseEntry = etMedicationDose.getText().toString();
+
+                Intent intent = new Intent(AddMedicineScreen.this, SeeMedicineScreen.class);
+                intent.putExtra(EXTRA_TEXT, medicationNameEntry);
+                intent.putExtra(EXTRA_NUMBER, medicationDoseEntry);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    /*
+    //gathers user entered information
+    private void passUserInformation(){
+        //etNameOfVariable where et denotes EditText variable
+        EditText etMedicationName = (EditText) findViewById(R.id.nameOfMedication);
+        EditText etMedicationDose = (EditText) findViewById(R.id.medicineDosage);
+
+        *//*
+        medicationDoseEntry might need to be an int variable
+        if so, = Integer.parseInt(etMedicationDose.getText().toString());
+        *//*
+        String medicationNameEntry = etMedicationName.getText().toString();
+        String medicationDoseEntry = etMedicationDose.getText().toString();
+
+        Intent intent = new Intent(this, SeeMedicineScreen.class);
+        intent.putExtra(EXTRA_TEXT, medicationNameEntry);
+        intent.putExtra(EXTRA_NUMBER, medicationDoseEntry);
+    }
+    */
+
+
+    /*
     //bool array, set to all false, when day of week selected, switch to true.
     boolean [] dayOfWeekArray = {false, false, false, false, false, false, false};
 
-
     //declare each day of the week checkbox
-    CheckBox sunday; //<-- null object exc, why?
+    CheckBox sunday;
     CheckBox monday;
     CheckBox tuesday;
     CheckBox wednesday;
@@ -37,23 +101,14 @@ public class AddMedicineScreen extends AppCompatActivity {
     CheckBox saturday;
 
     //checkbox array declaration
-    CheckBox [] dayOfWeekCheckBoxArray;
+    CheckBox [] dayOfWeekCheckBoxArray = new CheckBox[] {};
 
-    //edit text/text view/string declarations
-    EditText medicationName;
-    EditText medicationDose;
     TextView medicationNameDisplay;
     TextView medicationDoseDisplay;
-    String medicationNameEntry;
-    String medicationDoseEntry;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
 
-        Log.d(TAG , "onCreate: in");
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_medicine_screen);
+
 
 
         //set each day of week checkbox to their respective variables
@@ -65,15 +120,6 @@ public class AddMedicineScreen extends AppCompatActivity {
         friday = (CheckBox) findViewById(R.id.checkFriday);
         saturday = (CheckBox) findViewById(R.id.checkSaturday);
 
-        dayOfWeekCheckBoxArray = new CheckBox[] {sunday, monday, tuesday, wednesday, thursday, friday, saturday};
-
-        //save the entries
-        medicationName = (EditText) findViewById(R.id.nameOfMedication);
-        medicationDose = (EditText) findViewById(R.id.medicineDosage);
-
-        //medicationNameDisplay = (TextView) findViewById(R.id.addedMedScreenMedName);
-        //medicationDoseDisplay = (TextView) findViewById(R.id.addedMedScreenMedDose);
-
         //insert medication name and dose into respective text view boxes
         //convert text entries to usable strings
         medicationNameEntry = medicationName.getText().toString();
@@ -82,113 +128,8 @@ public class AddMedicineScreen extends AppCompatActivity {
         //confirm button should save entries from add medicine screen
         confirmButton = (Button) findViewById(R.id.confirmButton);
         confirmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                openSeeMedicineScreen();
-
-                setContentView(R.layout.activity_see_medicine_screen);
-
-                //displays entries
-                medicationNameDisplay.setText(medicationNameEntry);
-                medicationDoseDisplay.setText(medicationDoseEntry);
-
-                //check to see what days of the week are checked
-                for (int i = 0; i < dayOfWeekArray.length; i++) {
-                    if (dayOfWeekCheckBoxArray[i].isChecked()) {
-                        dayOfWeekArray[i] = true;
-                    }
-                }
 
 
-                //check time for alarm/alert/reminder
+     */
 
-                //then open see medication screen?
-
-
-
-            }
-        });
-
-        backButton = (Button) findViewById(R.id.backButton);
-
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                openMainActivity();
-            }
-        });
-
-        Log.d(TAG , "onCreate: out");
-    }
-
-    public void openMainActivity() {
-
-        Intent intent = new Intent(this , MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void openSeeMedicineScreen() {
-
-        Intent intent = new Intent(this , SeeMedicineScreen.class);
-        startActivity(intent);
-    }
-
-    @Override
-    protected void onStart() {
-        Log.d(TAG, "onStart: in");
-        super.onStart();
-        Log.d(TAG, "onStart: out");
-    }
-
-    /*
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        Log.d(TAG, "onRestoreInstanceState: in");
-        super.onRestoreInstanceState(savedInstanceState);
-        String savedString = savedInstanceState.getString(TEXT_CONTENTS);
-        textView.setText(savedString);
-        textView.setText(savedInstanceState.getString(TEXT_CONTENTS));
-        Log.d(TAG, "onRestoreInstanceState: out");
-    }
-    */
-
-    @Override
-    protected void onRestart() {
-        Log.d(TAG, "onRestart: in");
-        super.onRestart();
-        Log.d(TAG, "onRestart: out");
-    }
-
-    @Override
-    protected void onPause() {
-        Log.d(TAG, "onPause: in");
-        super.onPause();
-        Log.d(TAG, "onPause: out");
-    }
-
-    /*
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        Log.d(TAG, "onPause: in");
-        outState.putString(TEXT_CONTENTS, textView.getText().toString());
-        super.onSaveInstanceState(outState);
-        Log.d(TAG, "onPause: out");
-    }
-    */
-
-    @Override
-    protected void onResume() {
-        Log.d(TAG, "onPause: in");
-        super.onResume();
-        Log.d(TAG, "onPause: out");
-    }
-
-    @Override
-    protected void onStop() {
-        Log.d(TAG, "onPause: in");
-        super.onStop();
-        Log.d(TAG, "onPause: out");
-    }
 }

@@ -6,30 +6,45 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SeeMedicineScreen extends AppCompatActivity {
 
-    Button home_Button;
+    //Button home_Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_medicine_screen);
 
-        home_Button = (Button) findViewById(R.id.home_Button);
+        openMainActivity();
+        gatherUserInformation();
 
+    }
+
+    //GO HOME
+    private void openMainActivity() {
+        Button home_Button = (Button) findViewById(R.id.home_Button);
         home_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                openMainActivity();
+                startActivity(new Intent(SeeMedicineScreen.this , MainActivity.class));
+                //startActivity should direct see medicine screen to home/"main activity"
             }
         });
     }
 
-    public void openMainActivity() {
+    //gets information from AddMedicineScreen
+    private void gatherUserInformation() {
+        Intent intent = getIntent();
 
-        Intent intent = new Intent(this , MainActivity.class);
-        startActivity(intent);
+        String medicationName = intent.getStringExtra(AddMedicineScreen.EXTRA_TEXT);
+        String medicationDose = intent.getStringExtra(AddMedicineScreen.EXTRA_NUMBER);
+
+        TextView medNameView = (TextView) findViewById(R.id.addedMedScreenMedName);
+        TextView medDoseView = (TextView) findViewById(R.id.addedMedScreenMedDose);
+
+        medNameView.setText(medicationName);
+        medDoseView.setText(medicationDose);
     }
 }

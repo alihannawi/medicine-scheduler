@@ -3,6 +3,8 @@ package com.example.medicinescheduler;
 import java.time.*;
 
 public class MedicineEntry {
+    //i think this class is junk, leaving just in case not.
+
     String medicineName;
     Float medicineDose;
     boolean [] daysOfWeek;
